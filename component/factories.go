@@ -54,8 +54,10 @@ func MakeReceiverFactoryMap(factories ...ReceiverFactory) (map[config.Type]Recei
 // with factory type as keys. It returns a non-nil error when more than one factories
 // have the same type.
 func MakeProcessorFactoryMap(factories ...ProcessorFactory) (map[config.Type]ProcessorFactory, error) {
+	fmt.Println("Inside MakeProcessorFactoryMap .....")
 	fMap := map[config.Type]ProcessorFactory{}
 	for _, f := range factories {
+		fmt.Println("MakeProcessorFactoryMap" + f.Type())
 		if _, ok := fMap[f.Type()]; ok {
 			return fMap, fmt.Errorf("duplicate processor factory %q", f.Type())
 		}

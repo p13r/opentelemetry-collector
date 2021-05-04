@@ -38,6 +38,7 @@ import (
 	"go.opentelemetry.io/collector/processor/probabilisticsamplerprocessor"
 	"go.opentelemetry.io/collector/processor/resourceprocessor"
 	"go.opentelemetry.io/collector/processor/spanprocessor"
+	"go.opentelemetry.io/collector/processor/tracemetricsprocessor"
 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver"
 	"go.opentelemetry.io/collector/receiver/jaegerreceiver"
 	"go.opentelemetry.io/collector/receiver/kafkareceiver"
@@ -101,6 +102,7 @@ func Components() (
 		probabilisticsamplerprocessor.NewFactory(),
 		spanprocessor.NewFactory(),
 		filterprocessor.NewFactory(),
+		tracemetricsprocessor.NewFactory(),
 	)
 	if err != nil {
 		errs = append(errs, err)
